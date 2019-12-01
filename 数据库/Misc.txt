@@ -1,0 +1,6 @@
+Misc.db
+CREATE TABLE ContactHeadImg1(usrName TEXT PRIMARY KEY,createTime INT,smallHeadBuf BLOB,m_headImgMD5 TEXT)
+(null)
+CREATE INDEX createTimeIndex ON ContactHeadImg1(createTime DESC)
+CREATE TABLE BizContactHeadImg(usrName TEXT PRIMARY KEY,createTime INT,smallHeadBuf BLOB,m_headImgMD5 TEXT)
+(null)

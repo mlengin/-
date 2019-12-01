@@ -1,0 +1,10 @@
+OpenIMMsg.db
+CREATE TABLE ChatCRMsg(localId INTEGER PRIMARY KEY AUTOINCREMENT,talkerId INT DEFAULT 0,MsgSvrID INT,type INT,sequence INT DEFAULT 0,statusEx INT DEFAULT 0,FlagEx INT,IsSender INT,Status INT,CreateTime INT,strTalker TEXT,strContent TEXT,Reserved0 INT DEFAULT 0,Reserved1 TEXT,bytesTrans BLOB,bytesExtra BLOB,translatedContent TEXT,translatedBrand TEXT,Reserved2 INT DEFAULT 0,Reserved3 TEXT,Reserved4 TEXT)
+CREATE TABLE sqlite_sequence(name,seq)
+CREATE INDEX ChatCRMsgStorageIdx_1 ON ChatCRMsg(talkerId,sequence DESC)
+CREATE INDEX ChatCRMsgStorageIdx_2 ON ChatCRMsg(talkerId,type,sequence DESC)
+CREATE INDEX ChatCRMsgStorageIdx_3 ON ChatCRMsg(MsgSvrID)
+CREATE TABLE TransCRTable(msgLocalId INTEGER PRIMARY KEY,talkerId INT)
+CREATE INDEX talkerIDIdx ON TransCRTable(talkerId)
+CREATE TABLE Name2ID(UsrName TEXT PRIMARY KEY)
+(null)

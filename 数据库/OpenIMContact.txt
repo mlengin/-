@@ -1,0 +1,7 @@
+OpenIMContact.db
+CREATE TABLE OpenIMChatroomData(RoomName TEXT PRIMARY KEY ,ChatroomMaxCount INTEGER,Owner TEXT,Announcement TEXT,AnnouncementEditor TEXT,AnnouncementPublishTime INTEGER,Reserve1 INTEGER,Reserve2 INTEGER,Reserve3 INTEGER,Reserve4 TEXT,Reserve5 TEXT,Reserve6 BLOB)
+(null)
+CREATE TABLE OpenIMChatroomMember(RoomName TEXT ,UserName TEXT,DisplayName TEXT,MemberFlag INTEGER,InviteUserName TEXT,Reserve1 INTEGER,Reserve2 INTEGER,Reserve3 INTEGER,Reserve4 TEXT,Reserve5 TEXT,Reserve6 BLOB)
+CREATE INDEX RoomNameIdx ON OpenIMChatroomMember(RoomName, UserName)
+CREATE TABLE OpenIMContact(UserName TEXT PRIMARY KEY ,NickName TEXT,Type INTEGER DEFAULT 0,Remark TEXT,BigHeadImgUrl TEXT,SmallHeadImgUrl TEXT,Source INTEGER DEFAULT 0,NickNamePYInit TEXT,NickNameQuanPin TEXT,RemarkPYInit TEXT,RemarkQuanPin TEXT,CustomInfoDetail TEXT,CustomInfoDetailVisible INTEGER DEFAULT 0,AntiSpamTicket TEXT,AppId TEXT,Sex INTEGER,DescWordingId TEXT,Reserved1 INTEGER DEFAULT 0,Reserved2 INTEGER DEFAULT 0,Reserved3 INTEGER DEFAULT 0,Reserved4 INTEGER DEFAULT 0,Reserved5 TEXT,Reserved6 TEXT,Reserved7 TEXT,Reserved8 TEXT,ExtraBuf BLOB)
+(null)

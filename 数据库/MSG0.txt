@@ -1,0 +1,12 @@
+Multi\MSG0.db
+CREATE TABLE MSG (localId INTEGER PRIMARY KEY AUTOINCREMENT,TalkerId INT DEFAULT 0,MsgSvrID INT,Type INT,SubType INT,IsSender INT,CreateTime INT,Sequence INT DEFAULT 0,StatusEx INT DEFAULT 0,FlagEx INT,Status INT,MsgServerSeq INT,MsgSequence INT,StrTalker TEXT,StrContent TEXT,DisplayContent TEXT,Reserved0 INT DEFAULT 0,Reserved1 INT DEFAULT 0,Reserved2 INT DEFAULT 0,Reserved3 INT DEFAULT 0,Reserved4 TEXT,Reserved5 TEXT,Reserved6 TEXT,CompressContent BLOB,BytesExtra BLOB,BytesTrans BLOB)
+CREATE TABLE sqlite_sequence(name,seq)
+CREATE TABLE MSGTrans(msgLocalId INTEGER PRIMARY KEY, talkerId INT)
+CREATE INDEX talkerIDIdx ON MSGTrans(talkerId)
+CREATE INDEX MsgTalkerIdSeqIndex ON MSG(talkerId,sequence DESC)
+CREATE INDEX MsgTalkerIdTypeSeqIndex ON MSG(talkerId,type,sequence DESC)
+CREATE INDEX SvrIdIndex ON MSG(MsgSvrID)
+CREATE TABLE Name2ID(UsrName TEXT PRIMARY KEY)
+(null)
+CREATE TABLE DBInfo (							tableIndex INTEGER PRIMARY KEY,							tableVersion INTERGER,							tableDesc TEXT)
+CREATE INDEX versionIdx ON DBInfo(tableIndex)

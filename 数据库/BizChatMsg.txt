@@ -1,0 +1,7 @@
+BizChatMsg.db
+CREATE TABLE ChatMsg(localId INTEGER PRIMARY KEY AUTOINCREMENT,talkerId INT DEFAULT 0,MsgSvrID INT,type INT,IsSender INT,Status INT,CreateTime INT,strTalker TEXT,strContent TEXT,Reserved0 INT DEFAULT 0,Reserved1 TEXT,bytesTrans BLOB,bytesExtra BLOB,translatedContent TEXT,translatedBrand TEXT,Reserved2 INT DEFAULT 0,Reserved3 TEXT,Reserved4 TEXT)
+CREATE TABLE sqlite_sequence(name,seq)
+CREATE INDEX talkerIDIdx ON ChatMsg(talkerId)
+CREATE INDEX SvrIdIdx ON ChatMsg(MsgSvrID DESC)
+CREATE INDEX TalkerIdTypeIndex ON ChatMsg(talkerId,type)
+CREATE TABLE TransTable(msgLocalId INTEGER PRIMARY KEY,talkerId INT)

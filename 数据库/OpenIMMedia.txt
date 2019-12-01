@@ -1,0 +1,3 @@
+OpenIMMedia.db
+CREATE TABLE OpenIMMedia(Key TEXT PRIMARY KEY,Reserved0 INT,Buf BLOB,Reserved1 INT,Reserved2 TEXT)
+(null)

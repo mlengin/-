@@ -1,0 +1,10 @@
+Media.db
+CREATE TABLE MediaInfo(MsgLocalId INTEGER PRIMARY KEY,TalkerId INTEGER DEFAULT 0,MsgType INTEGER DEFAULT 0,Reserved0 INTEGER DEFAULT 0,Reserved1 TEXT,Thumbnail BLOB,Detail BLOB,Reserved2 INTEGER DEFAULT 0,Reserved3 TEXT)
+CREATE INDEX TalkerIdIdx ON MediaInfo(TalkerId)
+CREATE INDEX MsgTypeIdx ON MediaInfo(MsgType)
+CREATE TABLE ChatCRVoice(Key TEXT PRIMARY KEY,Reserved0 INT,Buf BLOB,Reserved1 INT,Reserved2 TEXT)
+(null)
+CREATE TABLE OpenIMMedia(Key TEXT PRIMARY KEY,Reserved0 INT,Buf BLOB,Reserved1 INT,Reserved2 TEXT)
+(null)
+CREATE TABLE PublicMsgMedia(Key TEXT PRIMARY KEY,Reserved0 INT,Buf BLOB,Reserved1 INT,Reserved2 TEXT)
+(null)

@@ -1,0 +1,8 @@
+FunctionMsg.db
+CREATE TABLE FunctionMsg(nCreateTime INTEGER,nHashId INTEGER, strFunctionMsgId TEXT, nCmdId INT DEFAULT 0,nOpCode INTEGER DEFAULT 0,nRetryInterval INTEGER DEFAULT 0,nReportId INTEGER DEFAULT 0,nVersion INTEGER DEFAULT 0,nFunctionMsgVersion INTEGER DEFAULT0,strSuccessKey TEXT,strFailKey TEXT,strFinalFailKey TEXT,strCustomBuff TEXT,nMsgSvrId	INTEGER,nRetryCount INTEGER,nBusinessId INTEGER,strBusinessBuff TEXT,nActionTime INTEGER,nDelayTime INTEGER,strCGI TEXT,strAddMsg TEXT,Reserved1 INTEGER DEFAULT 0,Reserved2 TEXT,Reserved3 INTEGER DEFAULT 0,Reserved4 TEXT,blobOriginalAddMsg BLOB,blobNotShowAddMsg BLOB)
+CREATE INDEX FunctionMsgIdx_0 ON FunctionMsg(nHashId)
+CREATE INDEX FunctionMsgIdx_1 ON FunctionMsg(nCreateTime)
+CREATE INDEX FunctionMsgIdx_2 ON FunctionMsg(nCreateTime,strFunctionMsgId)
+CREATE TABLE FunctionMsgTask(nCreateTime INTEGER DEFAULT 0, strFunctionMsgId TEXT, nOpCode INTEGER DEFAULT 0,nActionTime INTEGER,blobAddMsgBuffer BLOB,Reserved1 INTEGER DEFAULT 0,Reserved2 TEXT,Reserved3 INTEGER DEFAULT 0,Reserved4 TEXT)
+CREATE INDEX FunctionMsgTaskIdx_0 ON FunctionMsgTask(nCreateTime)
+CREATE INDEX FunctionMsgTaskIdx_1 ON FunctionMsgTask(strFunctionMsgId)
