@@ -155,6 +155,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MyInfo.cpp" />
     <ClCompile Include="SendMsg.cpp" />
+    <ClCompile Include="Sql.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common.h" />
@@ -164,6 +165,7 @@
     <ClInclude Include="offset.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SendMsg.h" />
+    <ClInclude Include="Sql.h" />
     <ClInclude Include="struct.h" />
   </ItemGroup>
   <ItemGroup>

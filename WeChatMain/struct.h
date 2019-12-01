@@ -44,3 +44,12 @@ struct DbHandle
 	int handler;
 	char path[0x1000];
 };
+
+typedef int (*sqlite3_callback)(void*, int, char**, char**);
+typedef int(WINAPI* Sqlite3_exec)(
+	DWORD,
+	const char*,
+	sqlite3_callback,
+	void*,
+	char**
+	);

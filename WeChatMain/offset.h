@@ -4,6 +4,9 @@
 #define RECEIVEMSGHOOKADDR 0x325373			//HOOK消息的内存地址偏移
 #define RECEIVEMSGHOOKPARM 0x13971B8		//HOOK消息需要PUSH的参数偏移
 
+//#define RECEIVEMSGHOOKADDR 0xCAEE5			//HOOK消息的内存地址偏移
+//#define RECEIVEMSGHOOKPARM 0xF193E0			//HOOK消息需要PUSH的参数偏移
+
 #define SENDTEXTADDR 0x2FA7F0				//发送文本消息ecx参数偏移
 
 #define SENDIMGADDR1 0x85710				//发送图片文件call地址偏移
@@ -20,3 +23,5 @@
 #define SENDATTACHADDR3 0x6DFA0
 #define SENDATTACHADDR4 0x242EC0
 #define SENDATTACHPARAM 0x10FD310
+
+#define DATABASERUNCALL 0x8646E0			//数据库执行call

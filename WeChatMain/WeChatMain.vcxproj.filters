@@ -28,6 +28,9 @@
     <Filter Include="InlineHook">
       <UniqueIdentifier>{fbb38c34-3140-4153-bf78-7dd57396db11}</UniqueIdentifier>
     </Filter>
+    <Filter Include="数据库操作">
+      <UniqueIdentifier>{70d70ec8-a02e-4884-aa9a-21d671c37b8f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -47,6 +50,9 @@
     </ClCompile>
     <ClCompile Include="InlineHook.cpp">
       <Filter>InlineHook</Filter>
+    </ClCompile>
+    <ClCompile Include="Sql.cpp">
+      <Filter>数据库操作</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +79,9 @@
     </ClInclude>
     <ClInclude Include="InlineHook.h">
       <Filter>InlineHook</Filter>
+    </ClInclude>
+    <ClInclude Include="Sql.h">
+      <Filter>数据库操作</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

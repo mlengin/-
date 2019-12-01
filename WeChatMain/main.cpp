@@ -9,9 +9,13 @@
 #include "Login.h"
 #include "InlineHook.h"
 #include <CommCtrl.h>
+#include <fstream>
 #include "SendMsg.h"
+#include "Sql.h"
+#include <Shlwapi.h>
+#pragma comment(lib,"Shlwapi.lib")
 using namespace std;
-
+string sqlResult = "";
 
 DWORD WINAPI ShowDialog(
 	_In_ HMODULE hModule
@@ -22,6 +26,7 @@ INT_PTR CALLBACK DialogProc(
 	_In_ WPARAM wParam,
 	_In_ LPARAM lParam
 );
+INT runSqlCallBack(void* para, int nColumn, char** colValue, char** colName);
 
 /**
  * 作者QQ：50728123
@@ -90,6 +95,10 @@ INT_PTR CALLBACK DialogProc(
 	{
 		setGlobalHwnd(hwndDlg);
 		SetDlgItemText(hwndDlg, RECEIVE_WXID_TEXT, L"filehelper");
+
+		SetDlgItemText(hwndDlg, SQL_RESULT, L"hook写入成功，已开始监听数据库句柄");
+		SetDlgItemText(hwndDlg, DB_NAME, L"MicroMsg.db");
+		SetDlgItemText(hwndDlg, SQL_TEXT, L"select * from sqlite_master");
 		//初始化消息接收list
 		LV_COLUMN msgPcol = { 0 };
 		LPCWSTR msgTitle[] = { L"类型",L"self",L"来源",L"发送者", L"字符串", L"详情" };
@@ -117,8 +126,8 @@ INT_PTR CALLBACK DialogProc(
 
 		//初始化好友列表list
 		LV_COLUMN friendPcol = { 0 };
-		LPCWSTR friendTitle[] = { L"wxid",L"头像",L"account",L"V1",L"备注",L"昵称" };
-		int friendCx[] = { 80,80,80,80,80,80 };
+		LPCWSTR friendTitle[] = { L"wxid",L"账号",L"昵称",L"备注",L"头像"};
+		int friendCx[] = { 80,80,80,80,80 };
 		friendPcol.mask = LVCF_FMT | LVCF_WIDTH | LVCF_TEXT;
 		friendPcol.fmt = LVCFMT_LEFT;
 		for (unsigned int i = 0; i < size(friendTitle); i++) {
@@ -148,7 +157,7 @@ INT_PTR CALLBACK DialogProc(
 			else
 			{
 				Information* myInfo = GetMyInfo();
-				wchar_t str[0x1500] = { 0 };
+				wchar_t str[0x1000] = { 0 };
 				swprintf_s(str,
 					L"微信ID：%s\r\n账号：%s\r\n昵称：%s\r\n设备：%s\r\n手机号：%s\r\n邮箱：%s\r\n性别：%s\r\n国籍：%s\r\n省份：%s\r\n城市：%s\r\n签名：%s\r\n头像：%s",
 					myInfo->wxid,
@@ -165,6 +174,10 @@ INT_PTR CALLBACK DialogProc(
 					myInfo->header);
 				SetDlgItemText(hwndDlg, MY_INFO_TEXT, str);
 			}
+		}
+		else if (wParam == AUTO_CLLECT_MONEY || wParam == AUTO_AGREE_NEW_FRIEND_APPLY || wParam == AUTO_DOWNLOAD_IMAGE || wParam == DELETE_FIREND)
+		{
+			MessageBox(NULL, L"功能开发中，请保持关注，GITHUB持续更新中", L"客官不要急嘛", 0);
 		}
 		else if (wParam == SEND_TEXT_BTN || wParam == SEND_IMG_BTN || wParam == SEND_ATTACH_BTN)
 		{
@@ -195,10 +208,58 @@ INT_PTR CALLBACK DialogProc(
 					break;
 			}
 		}
+		else if (wParam == RUN_SQL_BTN)
+		{
+			char dbName[0x100] = { 0 };
+			GetDlgItemTextA(hwndDlg, DATABASE_SELECT, dbName, 100);
+			char sql[0x1000] = { 0 };
+			GetDlgItemTextA(hwndDlg, SQL_TEXT, sql, 1000);
+			char* sqlErrmsg = NULL;
+			sqlResult = "";
+			for (auto& db : getDbHandleList())
+			{
+				if (StrStrA(db.path, dbName))
+				{
+					int ret = runSql(db.handler, string(sql), runSqlCallBack, sqlErrmsg);
+				}
+			}
+		}
+		else if (wParam == GET_CONTACT_LIST)
+		{
+			getContactList();
+		}
 	}
 	else if (uMsg == WM_CLOSE)
 	{
-		//EndDialog(hwndDlg, 0);
+		EndDialog(hwndDlg, 0);
 	}
 	return FALSE;
+}
+
+INT runSqlCallBack(void* para, int nColumn, char** colValue, char** colName)
+{
+	char columns[0x100] = { 0 };
+	sprintf_s(columns, "nColumns : %d\r\n", nColumn);
+	sqlResult = sqlResult + string(columns);
+	for (int i = 0; i < nColumn; i++)
+	{
+		char data[0x2048] = { 0 };
+		sprintf_s(data, "%s :%s\r\n", *(colName + i), colValue[i]);
+		sqlResult = sqlResult + string(data);
+	}
+	SetDlgItemTextA(getGlobalHwnd(), SQL_RESULT, sqlResult.c_str());
+
+	//for (int i = 0; i < nColumn; i++)
+	//{
+	//	char name[0x100] = { 0 };
+	//	sprintf_s(name, "%s", *(colName + i));
+	//	if (strcmp(name, "sql") == 0)
+	//	{
+	//		char value[0x2048] = { 0 };
+	//		sprintf_s(value, "%s\r\n", colValue[i]);
+	//		sqlResult = sqlResult + string(value);
+	//	}
+	//}
+	//SetDlgItemTextA(getGlobalHwnd(), SQL_RESULT, sqlResult.c_str());
+	return 0;
 }

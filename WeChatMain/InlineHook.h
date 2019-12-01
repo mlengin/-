@@ -3,5 +3,7 @@
 #include "struct.h"
 using namespace std;
 
-void inLineHook();
 list<DbHandle> getDbHandleList();
+Sqlite3_exec getSqlExec();
+void inLineHook();
+VOID getContactList();
