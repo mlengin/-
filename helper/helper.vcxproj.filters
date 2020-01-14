@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{955ac73d-6c54-4745-aa5c-26e8affe91c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="个人信息">
+      <UniqueIdentifier>{7116875b-fc2c-45f7-9626-0700760534da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="公共函数">
+      <UniqueIdentifier>{63892ceb-e82d-4a38-ada5-59851c317d46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inLineHook">
+      <UniqueIdentifier>{3adc729a-8f12-4eda-a2b9-33d2734d400c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="发送消息">
+      <UniqueIdentifier>{1877ea32-3429-4fa2-9fe0-e0429861a83b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="登录退出">
+      <UniqueIdentifier>{4d072f53-0bf1-46b0-854c-364a1cb5223c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="数据库">
+      <UniqueIdentifier>{26fc31a7-0f47-44b0-aee2-990c58d9dd60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI功能">
+      <UniqueIdentifier>{9ad87962-9467-4284-8fb6-82a266f8aa5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="群组相关">
+      <UniqueIdentifier>{dd2feaa4-5c02-4979-b609-5cd549993d16}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="helper.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="common.cpp">
+      <Filter>公共函数</Filter>
+    </ClCompile>
+    <ClCompile Include="userInfo.cpp">
+      <Filter>个人信息</Filter>
+    </ClCompile>
+    <ClCompile Include="InlineHook.cpp">
+      <Filter>inLineHook</Filter>
+    </ClCompile>
+    <ClCompile Include="SendMsg.cpp">
+      <Filter>发送消息</Filter>
+    </ClCompile>
+    <ClCompile Include="Login.cpp">
+      <Filter>登录退出</Filter>
+    </ClCompile>
+    <ClCompile Include="Sql.cpp">
+      <Filter>数据库</Filter>
+    </ClCompile>
+    <ClCompile Include="AiFun.cpp">
+      <Filter>AI功能</Filter>
+    </ClCompile>
+    <ClCompile Include="chatroom.cpp">
+      <Filter>群组相关</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common.h">
+      <Filter>公共函数</Filter>
+    </ClInclude>
+    <ClInclude Include="userInfo.h">
+      <Filter>个人信息</Filter>
+    </ClInclude>
+    <ClInclude Include="struct.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="offset.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="InlineHook.h">
+      <Filter>inLineHook</Filter>
+    </ClInclude>
+    <ClInclude Include="SendMsg.h">
+      <Filter>发送消息</Filter>
+    </ClInclude>
+    <ClInclude Include="Login.h">
+      <Filter>登录退出</Filter>
+    </ClInclude>
+    <ClInclude Include="Sql.h">
+      <Filter>数据库</Filter>
+    </ClInclude>
+    <ClInclude Include="AiFun.h">
+      <Filter>AI功能</Filter>
+    </ClInclude>
+    <ClInclude Include="chatroom.h">
+      <Filter>群组相关</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="helper.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

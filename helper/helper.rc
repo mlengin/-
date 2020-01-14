@@ -1,0 +1,142 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 中文(简体，中国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+DEBUG_MAIN DIALOGEX 0, 0, 601, 429
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "调试器"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CTEXT           "未登录",LOGIN_STATUS,10,10,32,8
+    CONTROL         "",FRIEND_LIST,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,166,206,248
+    EDITTEXT        MY_INFO_TEXT,7,23,206,121,ES_MULTILINE | ES_AUTOVSCROLL | ES_WANTRETURN | WS_VSCROLL
+    PUSHBUTTON      "个人信息",GET_MY_INFO,48,8,44,14
+    PUSHBUTTON      "刷新联系人",GET_CONTACT_LIST,140,151,74,14
+    CTEXT           "消息拦截已关闭",HOOK_MSG_STATUS,236,11,356,8
+    CONTROL         "",RECIEVE_MSG_LIST,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,235,23,358,121
+    COMBOBOX        DATABASE_SELECT,234,152,269,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "执行SQL",RUN_SQL_BTN,510,151,83,14
+    EDITTEXT        SQL_TEXT,234,169,359,27,ES_MULTILINE | ES_AUTOVSCROLL | ES_WANTRETURN | WS_VSCROLL
+    EDITTEXT        SQL_RESULT,234,200,359,57,ES_MULTILINE | ES_AUTOVSCROLL | ES_WANTRETURN | WS_VSCROLL
+    GROUPBOX        "自动功能区",IDC_STATIC,234,262,359,46
+    CONTROL         "自动收款",AUTO_COLLECT_MONEY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,239,276,89,10
+    CONTROL         "自动通过好友请求",AUTO_AGREE_NEW_FRIEND_APPLY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,336,276,136,10
+    CONTROL         "保存聊天图片",AUTO_DOWNLOAD_IMAGE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,477,276,107,10
+    CONTROL         "关注公众号名片",AUTO_FOLLOW_GH,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,336,294,137,10
+    CONTROL         "同意进群邀请",AUTO_JOIN_GROUP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,239,294,90,10
+    GROUPBOX        "消息发送区",IDC_STATIC,234,311,359,104
+    EDITTEXT        RECEIVE_WXID_TEXT,238,323,171,14,ES_AUTOHSCROLL
+    EDITTEXT        RECEIVE_CONTENT_TEXT,238,339,171,73,ES_MULTILINE | ES_AUTOVSCROLL | ES_WANTRETURN | WS_VSCROLL
+    PUSHBUTTON      "发文本消息",SEND_TEXT_BTN,416,324,50,14
+    PUSHBUTTON      "发送图片",SEND_IMG_BTN,480,324,50,14
+    PUSHBUTTON      "发送文件",SEND_ATTACH_BTN,542,324,50,14
+    PUSHBUTTON      "发送名片",SEND_USERCARD_BTN,416,342,50,14
+    PUSHBUTTON      "发送链接",SEND_URL_BTN,480,342,50,14
+    PUSHBUTTON      "添加好友",ADD_NEW_FRIEND,542,343,50,14
+    PUSHBUTTON      "无痕清粉",CLEAR_FANS,480,358,50,14
+    PUSHBUTTON      "退出登录",LOGOUT_ACCOUNT,103,8,50,14
+    PUSHBUTTON      "删除好友",DELETE_FRIEND,416,359,50,14
+    PUSHBUTTON      "退出群聊",QUIT_CHATROOM,542,398,50,14
+    PUSHBUTTON      "删除群成员",DELETE_CHATROOM_USER,480,398,50,14
+    PUSHBUTTON      "设置群公告",SET_CHATROOM_ANNOUNCEMENT,416,398,50,14
+    PUSHBUTTON      "设置群名称",SET_CHATROOM_NAME,416,382,50,14
+    PUSHBUTTON      "发群@消息",SEND_CHATROOM_AT_MSG,480,383,50,14
+    PUSHBUTTON      "添加群成员",ADD_CHATROMM_USER,542,383,50,14
+    PUSHBUTTON      "刷新二维码",GOTO_QRCODE,164,8,50,14
+    CONTROL         "添加用户名片",AUTO_ADD_USER_CARD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,477,295,110,10
+    PUSHBUTTON      "获取群成员",GET_CHATROOM_USER,542,359,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    DEBUG_MAIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 594
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 422
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+DEBUG_MAIN AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+#endif    // 中文(简体，中国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
